@@ -10,6 +10,7 @@
     };
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = {
@@ -22,6 +23,7 @@
       modules = [
         ./hosts/hp-14s
         inputs.home-manager.nixosModules.default
+	inputs.stylix.nixosModules.stylix
       ];
     };
   };

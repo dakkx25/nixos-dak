@@ -1,4 +1,3 @@
-{ pkgs, lib, ... }: 
 {
   imports = [
     ./boot.nix
@@ -8,8 +7,8 @@
     ./network.nix
     ./security.nix
     ./services.nix
+    ./stylix.nix
     ./users.nix
-    ./fonts.nix
   ];
 
   nix = {

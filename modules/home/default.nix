@@ -1,7 +1,13 @@
-{
+{pkgs, ...}: {
   imports = [
-    ./hyprland.nix
+    ./envars.nix
     ./foot.nix
+    ./fuzzel.nix
+    ./hyprland.nix
+    ./mpv.nix
+    ./waybar.nix
+    ./zathura.nix
+    ./zsh.nix
   ];
 
   home = {

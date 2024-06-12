@@ -1,4 +1,4 @@
-{
+{pkgs,...}: {
   time.timeZone = "Asia/Kolkata";
 
   i18n = {
@@ -15,5 +15,10 @@
       LC_TELEPHONE = "en_IN";
       LC_TIME = "en_IN";
     };
+  };
+
+  console = {
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-v32n.psf.gz";
+    packages = with pkgs; [terminus_font];
   };
 }
