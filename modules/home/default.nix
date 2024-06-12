@@ -1,6 +1,7 @@
 {
   imports = [
     ./hyprland.nix
+    ./foot.nix
   ];
 
   home = {
