@@ -1,13 +1,10 @@
+{ pkgs, config, ... }:
+
 {
-  pkgs,
-  config,
-  ...
-}: {
   stylix = {
     enable = true;
     image = ../../wall.png;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-    targets.plymouth.enable = false;
 
     cursor = {
       package = pkgs.bibata-cursors;
@@ -32,4 +29,5 @@
       sizes.popups = 14;
     };
   };
+
 }
