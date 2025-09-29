@@ -1,30 +1,22 @@
 {
-  description = "NixOS flake by dakwa";
+  description = "NixOS flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    stylix.url = "github:danth/stylix";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: {
-    nixosConfigurations.dakwa = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/hp-14s
-        inputs.home-manager.nixosModules.default
-	inputs.stylix.nixosModules.stylix
-      ];
+  outputs = { self, nixpkgs, chaotic }: {
+    nixosConfigurations = {
+      dakwa = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./config
+          ./hardware-configuration.nix
+          chaotic.nixosModules.default
+        ];  
+      };
     };
   };
+
 }
